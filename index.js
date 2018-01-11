@@ -1,3 +1,4 @@
+
 const Discord = require('discord.js');
 
 const client = new Discord.Client();
@@ -34,11 +35,14 @@ client.on('message', message => {
 
 client.on('message', message => {
   if (message.content === '!check') {
-    if active = true {
-      message.content.send('Autorole is currently ACTIVE')}
-    if active = false {
-      message.content.send('Autorole is currently OFF')}
-  }
+    switch (active) {
+      case true:
+        message.channel.send('Addon currently ACTIVE');
+        break;
+      case false:
+        message.channel.send('addon currently DEACTIVE');
+        break;
+                  }
 });
 
 client.on('guildMemberAdd', member => {
