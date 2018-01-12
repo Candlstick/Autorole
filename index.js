@@ -1,4 +1,3 @@
-
 const Discord = require('discord.js');
 
 const client = new Discord.Client();
@@ -10,13 +9,13 @@ client.on('ready', () => {
   console.log('I am ready!');
 });
 
-client.on('message', message => {
+/* client.on('message', message => {
   if (message.content === '!Initialize') {
-    roll.create('PUGS');
+    client.createRole('PUGS');
     message.channel.send('bot initialized!')
   }
  });
-
+*/
 client.on('message', message => {
   if (message.content === '!enable') {
     message.channel.send('enabling...');
@@ -43,13 +42,13 @@ client.on('message', message => {
         message.channel.send('addon currently DEACTIVE');
         break;
                   }
-});
+}});
 
 client.on('guildMemberAdd', member => {
-  if active = true {
-    member.addRole(PUGS);
-    message.channel.send('${Member} has been added to PUGS');
+  if(active === true) {
+    var role = member.guild.roles.find("name", "PUGS");
+    member.addRole(role).catch(console.error);
   }
-});
+})
 
 client.login(process.env.BOT_TOKEN);
